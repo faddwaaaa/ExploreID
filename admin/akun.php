@@ -2,15 +2,12 @@
 include "../koneksi.php";
 session_start();
 
-// ambil data admin aktif untuk header profil
 $admin_id = $_SESSION['admin_id'];
 $admin = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM admin WHERE admin_id='$admin_id'"));
 
-// ambil semua data admin & user
 $data_admin = mysqli_query($koneksi, "SELECT * FROM admin ORDER BY nama ASC");
 $data_user = mysqli_query($koneksi, "SELECT * FROM users ORDER BY nama ASC");
 
-// hapus akun
 if (isset($_GET['hapus_admin'])) {
     $hapus_id = $_GET['hapus_admin'];
     mysqli_query($koneksi, "DELETE FROM admin WHERE admin_id='$hapus_id'");

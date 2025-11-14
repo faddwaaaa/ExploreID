@@ -61,7 +61,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
         </li>
     </ul>
 
-    <!-- Kanan: Ikon Favorit & User -->
     <div style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 15px; position: relative; padding-right: 120px;">
         <a href="favorit.php">
             <i class="fa-regular fa-heart" 

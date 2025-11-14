@@ -6,7 +6,6 @@ $wisata_id = $_POST['wisata_id'];
 $komentar = $_POST['komentar'];
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
 
-// admin tidak komentar dari sini, hanya user
 $admin_id = NULL;
 
 if ($komentar == "") {

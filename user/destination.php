@@ -68,7 +68,6 @@ h2 span {
   margin: 0 auto 40px;
 }
 
-/* === FILTER BAR AESTHETIC === */
 .filter-bar {
   display: flex;
   justify-content: center;
@@ -106,7 +105,6 @@ h2 span {
   font-size: 16px;
 }
 
-/* CATEGORY DROPDOWN */
 .dropdown {
   position: relative;
 }
@@ -186,7 +184,6 @@ h2 span {
   background: #0d3a94;
 }
 
-/* CARD */
 .card-container {
   display: flex;
   justify-content: center;
@@ -269,7 +266,6 @@ h2 span {
     <p>Keindahan tak terbatas yang menggabungkan panorama alam spektakuler dengan kekayaan budaya yang menginspirasi perjalanan Anda.</p>
   </div>
 
-  <!-- FILTER -->
   <form method="GET" class="filter-bar">
     <div class="search-box">
       <input type="text" name="search" placeholder="Cari wisata..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
@@ -293,11 +289,9 @@ h2 span {
         <?php endwhile; ?>
       </div>
     </div>
-
     <button type="submit" class="submit-btn">Cari</button>
   </form>
 
-  <!-- CARD SECTION -->
   <div class="card-container">
     <?php if (mysqli_num_rows($result) > 0): ?>
       <?php while ($row = mysqli_fetch_assoc($result)) : ?>
@@ -377,7 +371,6 @@ document.addEventListener('DOMContentLoaded', function() {
     dropdownMenu.classList.toggle('show');
   });
 
-  // Klik di luar area → dropdown nutup
   document.addEventListener('click', function(e) {
     if (!dropdownBtn.contains(e.target)) {
       dropdownMenu.classList.remove('show');

@@ -2,11 +2,9 @@
 include "../koneksi.php";
 session_start();
 
-// ambil data admin buat header profil
 $admin_id = $_SESSION['admin_id'];
 $admin = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM admin WHERE admin_id='$admin_id'"));
 
-// tambah data wisata
 if (isset($_POST['submit'])) {
     $nama = $_POST['nama_wisata'];
     $deskripsi = $_POST['deskripsi'];
@@ -24,10 +22,8 @@ if (isset($_POST['submit'])) {
     mysqli_query($koneksi, $query);
 }
 
-// ambil kategori untuk dropdown
 $kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
 
-// ambil daftar wisata untuk tabel
 $wisata = mysqli_query($koneksi, "
     SELECT w.*, k.nama_kategori 
     FROM wisata w
@@ -153,7 +149,7 @@ $wisata = mysqli_query($koneksi, "
         flex: 1; 
     }
     button {
-        width: 100%; /* tombol tetap panjang */
+        width: 100%;
         background: #134BC3;
         color: white;
         border: none;

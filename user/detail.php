@@ -41,7 +41,6 @@ body {
     padding-top: 80px;
 }
 
-/* === Judul utama halaman === */
 .text-judul {
     text-align: center;
     font-family: 'Abril Fatface';
@@ -61,7 +60,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* === Container utama === */
 .container {
     max-width: 1100px;
     margin: 40px auto;
@@ -72,7 +70,6 @@ body {
     position: relative;
 }
 
-/* === Tombol navigasi atas === */
 .top-buttons {
     position: absolute;
     top: 25px;
@@ -83,7 +80,6 @@ body {
     align-items: center;
 }
 
-/* Tombol kembali & favorit */
 .icon-btn {
     border: 2px solid #134BC3;
     border-radius: 50%;
@@ -112,7 +108,6 @@ body {
     color: white;
 }
 
-/* === Konten utama === */
 .detail-content {
     display: flex;
     flex-wrap: wrap;
@@ -121,7 +116,6 @@ body {
     margin-top: 60px;
 }
 
-/* Gambar */
 .image-section {
     flex: 0 0 350px;
     text-align: center;
@@ -134,13 +128,11 @@ body {
     object-fit: cover;
 }
 
-/* Info */
 .info-section {
     flex: 1 1 500px;
     min-width: 300px;
 }
 
-/* Bedakan h2 di info-section agar tidak kena style global */
 .info-section h3 {
     font-family: 'Abril Fatface';
     font-size: 26px;
@@ -169,7 +161,6 @@ body {
     color: #000;
 }
 
-/* Responsif */
 @media (max-width: 900px) {
     .detail-content {
         flex-direction: column;
@@ -227,14 +218,12 @@ body {
         </div>
     </div>
 </div>
-<!-- ======= BAGIAN KOMENTAR ======= -->
 <div class="container" style="margin-top:30px;">
 
     <h2 style="font-family:'Abril Fatface'; margin-bottom:10px;">Komentar</h2>
     <p style="color:#666; margin-top:0;">Pendapat pengunjung tentang destinasi ini.</p>
 
     <?php
-    // Ambil komentar berdasarkan wisata_id
     $qKomentar = mysqli_query($koneksi, "
         SELECT k.*, 
             u.nama AS user_nama,

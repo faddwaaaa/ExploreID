@@ -8,11 +8,9 @@ $nama = $_POST['nama'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Ambil data lama
 $result = mysqli_query($koneksi, "SELECT * FROM users WHERE user_id='$user_id'");
 $user = mysqli_fetch_assoc($result);
 
-// Jika password baru diisi → ubah
 if (!empty($password)) {
     $hashed_password = md5($password);
     $password_query = ", password='$hashed_password'";
@@ -20,7 +18,6 @@ if (!empty($password)) {
     $password_query = "";
 }
 
-// Upload foto jika ada
 if (!empty($_FILES['foto']['name'])) {
     $foto_name = time() . '_' . $_FILES['foto']['name'];
     $foto_tmp = $_FILES['foto']['tmp_name'];

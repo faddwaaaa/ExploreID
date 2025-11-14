@@ -2,7 +2,6 @@
 session_start();
 include "../koneksi.php";
 
-// Cek apakah admin sudah login
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit();
@@ -10,11 +9,9 @@ if (!isset($_SESSION['admin_id'])) {
 
 $admin_id = $_SESSION['admin_id'];
 
-// Ambil data admin
 $sql = mysqli_query($koneksi, "SELECT * FROM admin WHERE admin_id='$admin_id'");
 $admin = mysqli_fetch_assoc($sql);
 
-// Hitung jumlah
 $destinations = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS total FROM wisata"))['total'];
 $user_count  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS total FROM users"))['total'];
 $admin_count = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS total FROM admin"))['total'];

@@ -5,7 +5,6 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 $admin = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM admin WHERE admin_id='$admin_id'"));
 
-// Ambil semua komentar
 $komentar = mysqli_query($koneksi, "
     SELECT komentar.*, 
            users.nama AS user_nama,
@@ -20,7 +19,6 @@ $komentar = mysqli_query($koneksi, "
     ORDER BY komentar.timestamp DESC
 ");
 
-// Hapus komentar
 if (isset($_GET['hapus'])) {
     $id = intval($_GET['hapus']);
     mysqli_query($koneksi, "DELETE FROM komentar WHERE komentar_id = $id");
@@ -28,7 +26,6 @@ if (isset($_GET['hapus'])) {
     exit();
 }
 
-// Tambah komentar oleh admin
 if (isset($_POST['submit_komentar'])) {
     $wisata_id = $_POST['wisata_id'];
     $komentar_text = $_POST['komentar'];
@@ -43,7 +40,6 @@ if (isset($_POST['submit_komentar'])) {
     exit();
 }
 
-// Ambil daftar wisata untuk dropdown
 $wisata_list = mysqli_query($koneksi, "SELECT * FROM wisata ORDER BY nama_wisata ASC");
 
 ?>
@@ -115,16 +111,15 @@ $wisata_list = mysqli_query($koneksi, "SELECT * FROM wisata ORDER BY nama_wisata
     }
 
     table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 7px rgba(0,0,0,0.1);
-}
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 7px rgba(0,0,0,0.1);
+    }
 
-    /* Header tabel */
     th {
         background: #E6E8EC;
         padding: 14px 10px;
@@ -134,7 +129,6 @@ $wisata_list = mysqli_query($koneksi, "SELECT * FROM wisata ORDER BY nama_wisata
         font-size: 15px;
     }
 
-    /* Isi tabel */
     td {
         padding: 12px 10px;
         text-align: center;
@@ -143,12 +137,10 @@ $wisata_list = mysqli_query($koneksi, "SELECT * FROM wisata ORDER BY nama_wisata
         font-size: 14px;
     }
 
-    /* Hover */
     tr:hover td {
         background: #f7faff;
     }
 
-    /* Profil img */
     .profile-img {
         width: 45px;
         height: 45px;

@@ -2,7 +2,6 @@
 include "../koneksi.php";
 session_start();
 
-// Pastikan admin sudah login
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit;
@@ -11,10 +10,8 @@ if (!isset($_SESSION['admin_id'])) {
 $admin_id = $_SESSION['admin_id'];
 $admin = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM admin WHERE admin_id='$admin_id'"));
 
-// Ambil ID destinasi dari URL
 $wisata_id = $_GET['wisata_id'] ?? 0;
 
-// Ambil data destinasi dari database
 $query = "
     SELECT w.*, k.nama_kategori 
     FROM wisata w
@@ -126,7 +123,6 @@ body {
     margin: 0 auto;
 }
 
-/* Layout gambar dan info */
 .destination-detail {
     display: flex;
     align-items: flex-start;
@@ -135,7 +131,6 @@ body {
     flex-wrap: wrap;
 }
 
-/* Gambar */
 .image-section {
     flex: 0 0 350px;
     text-align: center;
@@ -149,7 +144,6 @@ body {
     object-fit: cover;
 }
 
-/* Tombol-tombol */
 .btn-container {
     margin-top: 15px;
     display: flex;
@@ -222,7 +216,6 @@ body {
     text-align: justify;
 }
 
-/* Responsif biar tetap rapi di layar kecil */
 @media (max-width: 900px) {
     .destination-detail {
         flex-direction: column;

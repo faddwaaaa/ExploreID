@@ -6,7 +6,6 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
 
-    // upload foto
     $foto = $_FILES['foto']['name'];
     $tmp = $_FILES['foto']['tmp_name'];
 

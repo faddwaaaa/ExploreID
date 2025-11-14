@@ -33,7 +33,6 @@ include 'navbar.php';
         padding-top: 80px;
     }
 
-    /* FADE-IN ANIMATION */
     .fade-in {
         opacity: 0;
         transform: translateY(30px);
@@ -44,7 +43,6 @@ include 'navbar.php';
         transform: translateY(0);
     }
 
-    /* HERO SECTION */
     .hero {
         display: flex;
         align-items: center;
@@ -112,7 +110,6 @@ include 'navbar.php';
         justify-content: center;
     }
 
-    /* HERO IMAGES */
     .hero-images {
         position: relative;
         width: 700px;
@@ -134,7 +131,6 @@ include 'navbar.php';
         box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
-    /* posisi tiap gambar */
     .hero-images img:nth-child(1) {
         top: 0;
         left: 140px;
@@ -169,7 +165,6 @@ include 'navbar.php';
         }
     }
 
-    /* CARD WISATA */
     .card-wisata {
         width: 240px;
         background: white;
@@ -197,8 +192,7 @@ include 'navbar.php';
         height: 180px;
         object-fit: cover;
     }
-
-    /* GARIS PEMISAH */
+    
     .garis-hr hr {
         width: 90%;
         margin: 20px auto;
@@ -329,7 +323,6 @@ include 'navbar.php';
 <?php include 'footer.php'; ?>
 
 <script>
-// Fade-in effect saat scroll
 const fadeEls = document.querySelectorAll('.fade-in');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {

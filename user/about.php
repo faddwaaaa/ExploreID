@@ -195,7 +195,6 @@ include 'navbar.php';
             }
         }
 
-        /* 🔥 FADE-IN EFFECT */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);

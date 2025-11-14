@@ -2,7 +2,6 @@
 include "../koneksi.php";
 session_start();
 
-// Pastikan admin login
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit;
@@ -11,7 +10,6 @@ if (!isset($_SESSION['admin_id'])) {
 $admin_id = $_SESSION['admin_id'];
 $admin = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM admin WHERE admin_id='$admin_id'"));
 
-// Ambil ID wisata dari URL
 $wisata_id = $_GET['wisata_id'] ?? 0;
 $wisata = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM wisata WHERE wisata_id='$wisata_id'"));
 
@@ -20,17 +18,14 @@ if (!$wisata) {
     exit;
 }
 
-// Ambil kategori untuk dropdown
 $kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
 
-// Proses update
 if (isset($_POST['update'])) {
     $nama = $_POST['nama_wisata'];
     $deskripsi = $_POST['deskripsi'];
     $kategori_id = $_POST['kategori_id'];
     $lokasi = $_POST['lokasi'];
 
-    // cek apakah ada gambar baru
     if (!empty($_FILES['gambar']['name'])) {
         $gambar = $_FILES['gambar']['name'];
         $tmp = $_FILES['gambar']['tmp_name'];
@@ -41,7 +36,6 @@ if (isset($_POST['update'])) {
         $gambar_sql = "";
     }
 
-    // update data
     $query = "
         UPDATE wisata 
         SET kategori_id='$kategori_id', nama_wisata='$nama', lokasi='$lokasi', deskripsi='$deskripsi' $gambar_sql
@@ -144,7 +138,6 @@ body {
     font-size: 25px;
 }
 
-/* FORM STYLE */
 .form-container {
     display: flex;
     flex-direction: column;
@@ -180,7 +173,6 @@ textarea {
     height: 120px;
 }
 
-/* BUTTON */
 .btn-submit {
     width: 100%;
     background: #134BC3;

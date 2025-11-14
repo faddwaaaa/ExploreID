@@ -11,7 +11,6 @@ $admin_id = $_SESSION['admin_id'];
 $sql = mysqli_query($koneksi, "SELECT * FROM admin WHERE admin_id='$admin_id'");
 $admin = mysqli_fetch_assoc($sql);
 
-// Jika update disubmit
 if (isset($_POST['update'])) {
     $nama = $_POST['nama'];
     $email = $_POST['email'];
@@ -55,14 +54,13 @@ body {
     padding: 60px 20px;
 }
 
-/* Kartu utama */
 .edit-card {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(25px);
     border-radius: 25px;
     padding: 50px 70px;
     box-shadow: 0 8px 40px rgba(0,0,0,0.1);
-    width: 420px; /* Lebar lebih besar */
+    width: 420px;
     animation: fadeIn 0.8s ease-in-out;
     margin-top: 40px;
 }
@@ -126,7 +124,6 @@ h2 {
     box-shadow: 0 0 6px rgba(19,75,195,0.4);
 }
 
-/* Tombol */
 button {
     width: 100%;
     padding: 14px;

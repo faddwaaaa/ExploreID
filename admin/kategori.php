@@ -2,25 +2,21 @@
 include "../koneksi.php";
 session_start();
 
-// ambil data admin buat header profil
 $admin_id = $_SESSION['admin_id'];
 $admin = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM admin WHERE admin_id='$admin_id'"));
 
-// tambah kategori
 if (isset($_POST['submit'])) {
     $nama_kategori = $_POST['nama_kategori'];
     mysqli_query($koneksi, "INSERT INTO kategori (nama_kategori) VALUES ('$nama_kategori')");
     header("Location: kategori.php");
 }
 
-// hapus kategori
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
     mysqli_query($koneksi, "DELETE FROM kategori WHERE kategori_id='$id'");
     header("Location: kategori.php");
 }
 
-// ambil semua kategori
 $kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
 ?>
 

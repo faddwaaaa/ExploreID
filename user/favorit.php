@@ -10,7 +10,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Ambil data wisata yang difavoritkan user
 $query = "
   SELECT w.*
   FROM favorit f
@@ -70,7 +69,6 @@ h2 span {
   margin: 0 auto 40px;
 }
 
-/* CARD */
 .card-container {
   display: flex;
   justify-content: center;
@@ -159,14 +157,12 @@ h2 span {
     <p>Temukan kembali destinasi yang paling Anda sukai — keindahan yang selalu ingin Anda kunjungi lagi.</p>
   </div>
 
-  <!-- CARD SECTION -->
   <div class="card-container">
     <?php if (mysqli_num_rows($result) > 0): ?>
       <?php while ($row = mysqli_fetch_assoc($result)) : ?>
         <div class="card-wisata">
           <div style="position:relative;">
             <img src="../uploads/<?= htmlspecialchars($row['gambar']); ?>" alt="<?= htmlspecialchars($row['nama_wisata']); ?>">
-                <!-- IKON KOMENTAR (PINDAHKAN KE SINI) -->
                 <div style="
                     position:absolute;
                     top:10px;
@@ -197,7 +193,6 @@ h2 span {
                         <?= $komentar_count[$row['wisata_id']] ?? 0 ?>
                     </span>
                 </div>  
-            <!-- Tombol unfavorite -->
             <form action="hapus_favorit.php" method="POST" style="position:absolute; bottom:10px; right:10px;">
               <input type="hidden" name="wisata_id" value="<?= $row['wisata_id']; ?>">
               <button type="submit" name="hapus" class="love-btn">

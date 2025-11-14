@@ -3,7 +3,6 @@ session_start();
 include '../koneksi.php';
 include 'navbar.php';
 
-// Ambil data user dari session
 $user_id = $_SESSION['user_id'] ?? null;
 
 if (!$user_id) {
@@ -89,7 +88,6 @@ $user = mysqli_fetch_assoc($query);
         .edit-btn:hover {
             background-color: #0d3a94;
         }
-        /* Form edit profil */
         .edit-form {
             display: none;
             margin: 40px auto;
@@ -141,8 +139,6 @@ $user = mysqli_fetch_assoc($query);
         </div>
     </div>
 
-
-    <!-- Form Edit Profil -->
     <form class="edit-form" id="editForm" action="update_profile.php" method="POST" enctype="multipart/form-data">
         <h3 style="text-align:center; margin-bottom:15px;">Edit Profil</h3>
         <input type="text" name="nama" value="<?= htmlspecialchars($user['nama']) ?>" placeholder="Nama Lengkap" required>
