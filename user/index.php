@@ -237,7 +237,6 @@ include 'navbar.php';
 
 <div class="garis-hr fade-in"><hr></div>
 
-<!-- EXPLORE NTT SECTION -->
 <section class="fade-in" style="padding: 20px 80px;">
     <h2 style="text-align:center; font-family: 'Abril Fatface'; font-size:32px; margin-bottom:10px;">
         Explore <span style="color:#134BC3;">NTT</span>

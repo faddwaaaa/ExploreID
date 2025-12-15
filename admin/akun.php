@@ -15,9 +15,13 @@ if (isset($_GET['hapus_admin'])) {
 }
 if (isset($_GET['hapus_user'])) {
     $hapus_id = $_GET['hapus_user'];
+    mysqli_query($koneksi, "DELETE FROM favorit WHERE user_id='$hapus_id'");
+    mysqli_query($koneksi, "DELETE FROM komentar WHERE user_id='$hapus_id'");
     mysqli_query($koneksi, "DELETE FROM users WHERE user_id='$hapus_id'");
     header("Location: akun.php");
+    exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -180,12 +184,13 @@ td:last-child {
                 <th>Password</th>
                 <th>Aksi</th>
             </tr>
-            <?php $no=1; while($a = mysqli_fetch_assoc($data_admin)): ?>
+            <?php $no=1; 
+            while($a = mysqli_fetch_assoc($data_admin)): ?>
             <tr>
                 <td><?= $no++; ?></td>
                 <td><?= htmlspecialchars($a['nama']); ?></td>
                 <td><?= htmlspecialchars($a['email']); ?></td>
-                <td><?= htmlspecialchars($a['password']); ?></td>
+                <td>***</td>
                 <td>
                     <a href="akun.php?hapus_admin=<?= $a['admin_id']; ?>" onclick="return confirm('Yakin ingin menghapus admin ini?');">
                         <button class="btn-hapus"><i class="fa-solid fa-trash"></i> Hapus</button>
@@ -212,7 +217,7 @@ td:last-child {
                 <td><?= $no++; ?></td>
                 <td><?= htmlspecialchars($u['nama']); ?></td>
                 <td><?= htmlspecialchars($u['email']); ?></td>
-                <td><?= htmlspecialchars($u['password']); ?></td>
+                <td>***</td>
                 <td>
                     <a href="akun.php?hapus_user=<?= $u['user_id']; ?>" onclick="return confirm('Yakin ingin menghapus user ini?');">
                         <button class="btn-hapus"><i class="fa-solid fa-trash"></i> Hapus</button>
